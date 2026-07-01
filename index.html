@@ -1671,19 +1671,20 @@ window.addEventListener("load", () => {
 
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  tl.to(marks, { strokeDashoffset: 0, duration: 0.55, stagger: 0.05, ease: "power2.inOut" }, 0)
-    .to(loader, { opacity: 0, duration: 0.45, onComplete: () => loader.remove() }, 0.3)
-    .from(".hero-content .eyebrow", { opacity: 0, y: 20, duration: 0.8 }, 0.35);
+  // Lettermark draws fully (~1.3s), holds a beat, then the page is revealed
+  tl.to(marks, { strokeDashoffset: 0, duration: 1.3, stagger: 0.2, ease: "power2.inOut" }, 0)
+    .to(loader, { opacity: 0, duration: 0.7, onComplete: () => loader.remove() }, 2.1)
+    .from(".hero-content .eyebrow", { opacity: 0, y: 20, duration: 0.8 }, 2.2);
 
   if (split) {
-    tl.to(split.chars, { yPercent: 0, opacity: 1, duration: 0.9, stagger: 0.03 }, 0.4);
+    tl.to(split.chars, { yPercent: 0, opacity: 1, duration: 0.9, stagger: 0.03 }, 2.25);
   } else if (heroTitle) {
-    tl.from(heroTitle, { opacity: 0, y: 30, duration: 0.9 }, 0.4);
+    tl.from(heroTitle, { opacity: 0, y: 30, duration: 0.9 }, 2.25);
   }
 
-  tl.from(".hero-ornament", { scaleX: 0, transformOrigin: "left center", duration: 0.7 }, 0.6)
-    .from(".hero-tagline", { opacity: 0, y: 24, duration: 0.9 }, 0.68)
-    .to(".scroll-indicator", { opacity: 1, duration: 0.8 }, 0.75);
+  tl.from(".hero-ornament", { scaleX: 0, transformOrigin: "left center", duration: 0.7 }, 2.45)
+    .from(".hero-tagline", { opacity: 0, y: 24, duration: 0.9 }, 2.55)
+    .to(".scroll-indicator", { opacity: 1, duration: 0.8 }, 2.65);
 });
 
 /* ═══════════════════════════════════════════════════════════════════
