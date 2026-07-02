@@ -1,2 +1,6 @@
 .claude/
 main-check.js
+
+# internal documents — not part of the site
+*.pdf
+localway*.png
